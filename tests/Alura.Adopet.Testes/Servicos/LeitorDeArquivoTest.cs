@@ -22,7 +22,7 @@ public class LeitorDeArquivoTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new LeitorDeArquivoCsv(caminhoArquivo).RealizaLeitura()!;
+        var listaDePets = new LeitorDeArquivosCsv(caminhoArquivo).RealizaLeitura()!;
         //Assert
         Assert.NotNull(listaDePets);
         Assert.Single(listaDePets);
@@ -34,7 +34,7 @@ public class LeitorDeArquivoTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new LeitorDeArquivoCsv("").RealizaLeitura();
+        var listaDePets = new LeitorDeArquivosCsv("").RealizaLeitura();
         //Assert
         Assert.Null(listaDePets);
     }
@@ -44,7 +44,7 @@ public class LeitorDeArquivoTest : IDisposable
     {
         //Arrange            
         //Act
-        var listaDePets = new LeitorDeArquivoCsv(null).RealizaLeitura();
+        var listaDePets = new LeitorDeArquivosCsv(null).RealizaLeitura();
         //Assert
         Assert.Null(listaDePets);
     }

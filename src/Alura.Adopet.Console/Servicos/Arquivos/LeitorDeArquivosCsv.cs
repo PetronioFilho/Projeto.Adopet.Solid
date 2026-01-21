@@ -3,10 +3,10 @@ using Alura.Adopet.Console.Servicos.Abstracoes;
 
 namespace Alura.Adopet.Console.Servicos.Arquivos;
 
-public class LeitorDeArquivoCsv: ILeitorDeArquivos
+public class LeitorDeArquivosCsv: ILeitorDeArquivos
 {
     private string caminhoDoArquivoASerLido;
-    public LeitorDeArquivoCsv(string caminhoDoArquivoASerLido)
+    public LeitorDeArquivosCsv(string caminhoDoArquivoASerLido)
     {
         this.caminhoDoArquivoASerLido = caminhoDoArquivoASerLido;
     }

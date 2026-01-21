@@ -16,7 +16,13 @@ public static class ComandosFactory
         {
             case "import":
                 var httpClientPet = new HttpClientPet(new AdopetAPIClientFactory().CreateClient("adopet"));
-                var leitorDeArquivos = new LeitorDeArquivoCsv(argumentos[1]);
+                var leitorDeArquivos = LeitorDeArquivosFactory.CreatePetFrom(argumentos[1]);
+
+                if (leitorDeArquivos is null)
+                {
+                    return null;
+                }
+
                 return new Import(httpClientPet, leitorDeArquivos);
 
             case "list":
@@ -24,14 +30,20 @@ public static class ComandosFactory
                 return new List(httpClientPetList);
 
             case "show":
-                var leitorDeArquivosShow = new LeitorDeArquivoCsv(argumentos[1]);
+                var leitorDeArquivosShow = LeitorDeArquivosFactory.CreatePetFrom(argumentos[1]);
+
+                if (leitorDeArquivosShow is null)
+                {
+                    return null;
+                }
+
                 return new Show(leitorDeArquivosShow);
 
             case "help":
-                var comandoASerExibido = argumentos.Length==2? argumentos[1] : null;
+                var comandoASerExibido = argumentos.Length == 2 ? argumentos[1] : null;
                 return new Help(comandoASerExibido);
 
             default: return null;
-        }           
+        }
     }
 }
