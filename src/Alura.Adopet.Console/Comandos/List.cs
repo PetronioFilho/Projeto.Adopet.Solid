@@ -1,7 +1,7 @@
-﻿using Alura.Adopet.Console.Modelos;
-using Alura.Adopet.Console.Servicos.Http;
-using Alura.Adopet.Console.Atributos;
+﻿using Alura.Adopet.Console.Atributos;
+using Alura.Adopet.Console.Modelos;
 using Alura.Adopet.Console.Results;
+using Alura.Adopet.Console.Servicos.Abstracoes;
 using FluentResults;
 
 namespace Alura.Adopet.Console.Comandos
@@ -10,9 +10,9 @@ namespace Alura.Adopet.Console.Comandos
       documentacao: "adopet list comando que exibe no terminal o conteúdo cadastrado na base de dados da AdoPet.")]
     public class List: IComando
     {
-        private readonly HttpClientPet clientPet;
+        private readonly IApiServices<Pet> clientPet;
 
-        public List(HttpClientPet clientPet)
+        public List(IApiServices<Pet> clientPet)
         {
             this.clientPet = clientPet;
         }

@@ -11,7 +11,7 @@ namespace Alura.Adopet.Console.Servicos.Arquivos
             {
                 ".json" => new LeitorDeArquivosJson(caminhoArquivo),
                 ".csv" => new LeitorDeArquivosCsv(caminhoArquivo),
-                _ => throw new NotSupportedException($"Extensão de arquivo '{extensao}' não é suportada."),
+                _ => throw new NotSupportedException(null),
             };
         }
     }
