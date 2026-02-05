@@ -1,11 +1,8 @@
-﻿
-using Alura.Adopet.Console.Modelos;
-using Alura.Adopet.Console.Servicos.Abstracoes;
-using System.Text.Json;
+﻿using Alura.Adopet.Console.Servicos.Abstracoes;
 
 namespace Alura.Adopet.Console.Servicos.Arquivos
 {
-    public class LeitorDeArquivosJson: ILeitorDeArquivos<Pet>
+    public abstract class LeitorDeArquivosJson<T>: ILeitorDeArquivos<T>
     {
         private string caminhoArquivo;
 
@@ -14,10 +11,25 @@ namespace Alura.Adopet.Console.Servicos.Arquivos
             this.caminhoArquivo = caminhoArquivo;
         }
 
-        public virtual IEnumerable<Pet> RealizaLeitura()
+        public virtual IEnumerable<T> RealizaLeitura()
         {
+            if(string.IsNullOrEmpty(caminhoArquivo))
+            {
+                return null;
+            }
+            List<T> lista = new List<T>();
             using var stream = new FileStream(caminhoArquivo, FileMode.Open, FileAccess.Read);
-            return JsonSerializer.Deserialize<IEnumerable<Pet>>(stream)??Enumerable.Empty<Pet>();
+
+            while(!stream.CanRead)
+            {
+                var objeto = CriarDaLinhaJson(caminhoArquivo);
+                lista.Add(objeto);
+            }
+
+            return lista;
         }
+
+        public abstract T CriarDaLinhaJson(string caminhoArquivo);
+
     }
 }
