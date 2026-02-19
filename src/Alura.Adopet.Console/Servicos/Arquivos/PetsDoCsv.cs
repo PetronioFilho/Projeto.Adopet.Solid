@@ -2,7 +2,7 @@
 
 namespace Alura.Adopet.Console.Servicos.Arquivos
 {
-    public class PetsDoCsv : LeitorDeArquivosCsv<Pet>
+    public class PetsDoCsv : LeitorDeArquivoCsv<Pet>
     {
         public PetsDoCsv(string caminhoDoArquivoASerLido) : base(caminhoDoArquivoASerLido)
         {

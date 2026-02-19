@@ -6,9 +6,9 @@ namespace Alura.Adopet.TestesIntegracao.Builder;
 
 internal static class LeitorDeArquivosMockBuilder
 {
-    public static Mock<LeitorDeArquivosCsv> GetMock(List<Pet> listaDePet)
+    public static Mock<LeitorDeArquivoCsv<Pet>> GetMock(List<Pet> listaDePet)
     {
-        var leitorDeArquivo = new Mock<LeitorDeArquivosCsv>(MockBehavior.Default,
+        var leitorDeArquivo = new Mock<LeitorDeArquivoCsv<Pet>>(MockBehavior.Default,
             It.IsAny<string>());
 
         leitorDeArquivo.Setup(_ => _.RealizaLeitura()).Returns(listaDePet);

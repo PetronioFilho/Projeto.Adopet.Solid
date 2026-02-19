@@ -2,6 +2,7 @@
 using Alura.Adopet.Console.Modelos;
 using Alura.Adopet.Console.Results;
 using Alura.Adopet.Testes.Builder;
+using Alura.Adopet.TestesIntegracao.Builder;
 using Moq;
 
 namespace Alura.Adopet.Testes.Comandos;
@@ -13,7 +14,7 @@ public class ImportTest
     {
         //Arrange
         List<Pet> listaDePet = new();
-        var leitorDeArquivo = LeitorDeArquivosMockBuilder.GetMock(listaDePet);
+        var leitorDeArquivo = LeitorDeArquivosMockBuilder<Pet>.GetMock(listaDePet);
 
         var httpClientPet = HttpClientPetMockBuilder.GetMock();
 
@@ -31,7 +32,7 @@ public class ImportTest
     {
         //Arrange
         List<Pet> listaDePet = new();
-        var leitor = LeitorDeArquivosMockBuilder.GetMock(listaDePet);
+        var leitor = LeitorDeArquivosMockBuilder<Pet>.GetMock(listaDePet);
         leitor.Setup(_ => _.RealizaLeitura()).Throws<FileNotFoundException>();
 
         var httpClientPet = HttpClientPetMockBuilder.GetMock();
@@ -53,7 +54,7 @@ public class ImportTest
         var pet = new Pet(new Guid("456b24f4-19e2-4423-845d-4a80e8854a99"),
                           "Lima", TipoPet.Cachorro);
         listaDePet.Add(pet);
-        var leitorDeArquivo = LeitorDeArquivosMockBuilder.GetMock(listaDePet);
+        var leitorDeArquivo = LeitorDeArquivosMockBuilder<Pet>.GetMock(listaDePet);
 
         var httpClientPet = HttpClientPetMockBuilder.GetMock();
 

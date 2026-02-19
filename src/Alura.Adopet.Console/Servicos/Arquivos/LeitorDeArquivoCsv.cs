@@ -2,10 +2,10 @@
 
 namespace Alura.Adopet.Console.Servicos.Arquivos;
 
-public abstract class LeitorDeArquivosCsv<T>: ILeitorDeArquivos<T>
+public abstract class LeitorDeArquivoCsv<T>: ILeitorDeArquivos<T>
 {
     private string caminhoDoArquivoASerLido;
-    public LeitorDeArquivosCsv(string caminhoDoArquivoASerLido)
+    public LeitorDeArquivoCsv(string caminhoDoArquivoASerLido)
     {
         this.caminhoDoArquivoASerLido = caminhoDoArquivoASerLido;
     }

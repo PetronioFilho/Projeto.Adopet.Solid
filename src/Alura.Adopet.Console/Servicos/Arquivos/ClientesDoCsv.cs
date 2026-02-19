@@ -2,7 +2,7 @@
 
 namespace Alura.Adopet.Console.Servicos.Arquivos
 {
-    public class ClientesDoCsv : LeitorDeArquivosCsv<Cliente>
+    public class ClientesDoCsv : LeitorDeArquivoCsv<Cliente>
     {
         public ClientesDoCsv(string caminhoDoArquivoASerLido) : base(caminhoDoArquivoASerLido)
         {

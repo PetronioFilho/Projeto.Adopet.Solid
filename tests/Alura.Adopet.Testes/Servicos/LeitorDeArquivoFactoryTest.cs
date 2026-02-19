@@ -1,9 +1,5 @@
-﻿using Alura.Adopet.Console.Servicos.Arquivos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Alura.Adopet.Console.Modelos;
+using Alura.Adopet.Console.Servicos.Arquivos;
 
 namespace Alura.Adopet.Testes.Servicos
 {
@@ -19,7 +15,7 @@ namespace Alura.Adopet.Testes.Servicos
             var leitor = LeitorDeArquivosFactory.CreatePetFrom(caminhoArquivo);
 
             //Assert
-            Assert.IsType<LeitorDeArquivosCsv>(leitor);
+            Assert.IsType<PetsDoCsv>(leitor);
         }
 
         [Fact]
@@ -32,7 +28,7 @@ namespace Alura.Adopet.Testes.Servicos
             var leitor = LeitorDeArquivosFactory.CreatePetFrom(caminhoArquivo);
 
             // Assert
-            Assert.IsType<LeitorDeArquivosJson>(leitor);
+            Assert.IsType<LeitorDeArquivoJson<Pet>>(leitor);
         }
 
         [Fact]
