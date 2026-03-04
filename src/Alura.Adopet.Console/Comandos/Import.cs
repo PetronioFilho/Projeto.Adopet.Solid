@@ -40,11 +40,7 @@ namespace Alura.Adopet.Console.Comandos
             {
 
                 return Result.Fail(new Error("Importação falhou!").CausedBy(exception));
-            }
-            
-            
-            
-            
+            }                                               
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Alura.Adopet.Console.Servicos;
+using Alura.Adopet.Console.Servicos.Http;
 using Alura.Adopet.Testes.Builder;
 
 namespace Alura.Adopet.Testes.Servicos
@@ -26,7 +27,7 @@ namespace Alura.Adopet.Testes.Servicos
                 ]
             ");
 
-            var service = new ClienteService(mock.Object);
+            var service = new PetService(mock.Object);
 
             //Act
             var lista = await service.ListAsync();
