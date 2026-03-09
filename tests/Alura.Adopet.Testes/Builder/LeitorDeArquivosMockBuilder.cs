@@ -1,14 +1,16 @@
-﻿using Alura.Adopet.Console.Servicos.Arquivos;
+﻿using Alura.Adopet.Console.Servicos.Abstracoes;
+using Alura.Adopet.Console.Servicos.Arquivos;
 using Moq;
 
 namespace Alura.Adopet.TestesIntegracao.Builder;
 
-public static class LeitorDeArquivosMockBuilder<T>
+
+internal static class LeitorDeArquivosMockBuilder
 {
-    public static Mock<LeitorDeArquivoCsv<T>> GetMock(List<T> lista)
+    public static Mock<ILeitorDeArquivos<T>> GetMock<T>(List<T> lista)
     {
-        var leitorDeArquivo = new Mock<LeitorDeArquivoCsv<T>>(MockBehavior.Default,
-            It.IsAny<string>());
+        var leitorDeArquivo = new Mock<ILeitorDeArquivos<T>>(MockBehavior.Default
+            );
 
         leitorDeArquivo.Setup(_ => _.RealizaLeitura()).Returns(lista);
 

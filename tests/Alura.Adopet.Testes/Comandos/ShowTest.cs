@@ -15,7 +15,7 @@ public class ShowTest
         var pet = new Pet(new Guid("456b24f4-19e2-4423-845d-4a80e8854a99"),
                           "Lima", TipoPet.Cachorro);
         listaDePet.Add(pet);
-        var leitor = LeitorDeArquivosMockBuilder<Pet>.GetMock(listaDePet);
+        var leitor = LeitorDeArquivosMockBuilder.GetMock(listaDePet);
         leitor.Setup(_ => _.RealizaLeitura());
 
         var show = new Show(leitor.Object);

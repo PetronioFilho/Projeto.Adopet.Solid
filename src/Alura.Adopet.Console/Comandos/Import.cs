@@ -10,11 +10,11 @@ namespace Alura.Adopet.Console.Comandos
         documentacao: "adopet import <ARQUIVO> comando que realiza a importação do arquivo de pets.")]
     public class Import:IComando
     {
-        private readonly IApiServices<Pet> clientPet;
+        private readonly IApiService<Pet> clientPet;
 
         private readonly ILeitorDeArquivos<Pet> leitor;
 
-        public Import(IApiServices<Pet> clientPet, ILeitorDeArquivos<Pet> leitor)
+        public Import(IApiService<Pet> clientPet, ILeitorDeArquivos<Pet> leitor)
         {
             this.clientPet = clientPet;
             this.leitor = leitor;
